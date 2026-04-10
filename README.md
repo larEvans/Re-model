@@ -30,6 +30,10 @@ After deployment, your site URL will be:
 - If your repo is private on a free plan, Pages may be unavailable until the repo is public or plan supports private Pages.
 - In **Settings → Pages**, verify source is still set to **GitHub Actions**.
 
+### Branch/PR preview builds
+A separate workflow (`.github/workflows/preview-build.yml`) runs on every branch push and pull request.
+It builds the app and uploads a downloadable `dist/` preview artifact so reviewers can quickly validate the bundle output before merge.
+
 ### Local run / build
 ```bash
 npm install
