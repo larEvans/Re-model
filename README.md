@@ -17,10 +17,18 @@ This repository is configured for GitHub Pages using Actions (`.github/workflows
 1. Push this repo to GitHub.
 2. In GitHub, open **Settings → Pages**.
 3. Set **Source** to **GitHub Actions**.
-4. Ensure your default branch is `main` (the workflow deploys on pushes to `main`).
+4. Confirm which branch is your repository **default branch** (for example `main`, `master`, or another branch name).
+
+This workflow deploys whenever that default branch is updated.
 
 After deployment, your site URL will be:
 `https://<your-github-username>.github.io/Re-model/`
+
+### If it is still not live
+- Go to **Actions** and open the latest **Deploy to GitHub Pages** run.
+- Confirm the run happened on your repository default branch.
+- If your repo is private on a free plan, Pages may be unavailable until the repo is public or plan supports private Pages.
+- In **Settings → Pages**, verify source is still set to **GitHub Actions**.
 
 ### Local run / build
 ```bash
