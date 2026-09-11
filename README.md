@@ -10,42 +10,39 @@ This repository now includes a React + Vite MVP starter with:
 - Stage-based renovation progress tracking across core construction phases.
 - Expense ledger with category totals and live spend summary.
 
-## Deploy as a live GitHub website
-This repository is configured for GitHub Pages using Actions (`.github/workflows/deploy-pages.yml`).
+## Deploy free on Cloudflare Pages
 
-### One-time GitHub setup
-1. Push this repo to GitHub.
-2. In GitHub, open **Settings → Pages**.
-3. Set **Source** to **GitHub Actions**.
-4. Ensure your production branch is `main` or `master` (the deploy workflow runs on pushes to those branches).
-5. If your default branch has a different name, update `.github/workflows/deploy-pages.yml` to include it under `on.push.branches`.
+The app is configured for Cloudflare Pages and deploys from `main` or `master` using `.github/workflows/deploy-cloudflare.yml`.
 
-This workflow deploys whenever one of the configured production branches is updated.
+1. Create a free Cloudflare account and a Pages project named `re-model`.
+2. Create an API token with **Cloudflare Pages: Edit** access.
+3. In GitHub **Settings → Secrets and variables → Actions**, add:
+   - `CLOUDFLARE_API_TOKEN`
+   - `CLOUDFLARE_ACCOUNT_ID`
+4. Push or merge to `main`/`master`, or run **Deploy to Cloudflare Pages** manually from Actions.
+5. Cloudflare publishes the site at `https://re-model.pages.dev` (or an available variant if that project name is already taken).
 
-After deployment, your site URL will be:
-`https://<your-github-username>.github.io/Re-model/`
+You can also deploy from an authenticated terminal with:
 
-### If it is still not live
-- Go to **Actions** and open the latest **Deploy to GitHub Pages** run.
-- Confirm the run happened on `main` or `master` (or your customized production branch list).
-- If your repo is private on a free plan, Pages may be unavailable until the repo is public or plan supports private Pages.
-- In **Settings → Pages**, verify source is still set to **GitHub Actions**.
+```bash
+npm install
+npm run deploy
+```
 
-### Branch/PR preview builds
-A separate workflow (`.github/workflows/preview-build.yml`) runs on every branch push and pull request.
-It builds the app and uploads a downloadable `dist/` preview artifact so reviewers can quickly validate the bundle output before merge.
+> Cloudflare credentials are account secrets. They cannot be created or entered from this repository, so the one-time secret setup must be completed by the repository owner.
 
-### Local run / build
+## Data source approach
+
+The discovery MVP presents normalized demonstration listings and links back to public source sites. Production integrations should use licensed APIs, feeds, or approved affiliate/data agreements rather than scraping sites that prohibit automated access. Before an offer, users must independently verify property status, title, condition, comparable sales, and financial assumptions.
+
+## Local development
+
 ```bash
 npm install
 npm run dev
 ```
 
-Then open the local URL shown by Vite (typically <http://localhost:5173>). To create a production bundle:
-
-```bash
-npm run build
-```
+Then open the local URL shown by Vite. Create a production bundle with `npm run build`.
 
 ## Product Vision
 Re-model gives investors, flippers, homeowners, and real estate professionals a single operating system for value-add renovation projects. The platform reduces risk, improves budget discipline, and increases return on investment through data-driven planning and execution workflows.
