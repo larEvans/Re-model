@@ -10,39 +10,18 @@ This repository now includes a React + Vite MVP starter with:
 - Stage-based renovation progress tracking across core construction phases.
 - Expense ledger with category totals and live spend summary.
 
-## Deploy free on Cloudflare Pages
-
-The app is configured for Cloudflare Pages and deploys from `main` or `master` using `.github/workflows/deploy-cloudflare.yml`.
-
-1. Create a free Cloudflare account and a Pages project named `re-model`.
-2. Create an API token with **Cloudflare Pages: Edit** access.
-3. In GitHub **Settings → Secrets and variables → Actions**, add:
-   - `CLOUDFLARE_API_TOKEN`
-   - `CLOUDFLARE_ACCOUNT_ID`
-4. Push or merge to `main`/`master`, or run **Deploy to Cloudflare Pages** manually from Actions.
-5. Cloudflare publishes the site at `https://re-model.pages.dev` (or an available variant if that project name is already taken).
-
-You can also deploy from an authenticated terminal with:
-
-```bash
-npm install
-npm run deploy
-```
-
-> Cloudflare credentials are account secrets. They cannot be created or entered from this repository, so the one-time secret setup must be completed by the repository owner.
-
-## Data source approach
-
-The discovery MVP presents normalized demonstration listings and links back to public source sites. Production integrations should use licensed APIs, feeds, or approved affiliate/data agreements rather than scraping sites that prohibit automated access. Before an offer, users must independently verify property status, title, condition, comparable sales, and financial assumptions.
-
-## Local development
+### Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open the local URL shown by Vite. Create a production bundle with `npm run build`.
+Then open the local URL shown by Vite (typically <http://localhost:5173>). To create a production bundle:
+
+```bash
+npm run build
+```
 
 ## Product Vision
 Re-model gives investors, flippers, homeowners, and real estate professionals a single operating system for value-add renovation projects. The platform reduces risk, improves budget discipline, and increases return on investment through data-driven planning and execution workflows.
